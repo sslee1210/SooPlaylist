@@ -6,10 +6,12 @@
   height: 844px;
   background: linear-gradient(to bottom, #a8a8a8, #7a7979);
   overflow: auto;
-  box-shadow: 0.1px 0.3px 6.1px rgba(0, 0, 0, 0.018), 0.3px 0.6px 14.1px rgba(0, 0, 0, 0.026),
-    0.6px 1.2px 25.3px rgba(0, 0, 0, 0.032), 1px 1.9px 42.1px rgba(0, 0, 0, 0.038),
-    1.6px 3.2px 69.3px rgba(0, 0, 0, 0.044), 2.8px 5.5px 121.1px rgba(0, 0, 0, 0.052),
-    6px 12px 262px rgba(0, 0, 0, 0.07);
+  box-shadow: 0.1px 0.3px 6.1px rgba(0, 0, 0, 0.018),
+    0.3px 0.6px 14.1px rgba(0, 0, 0, 0.026),
+    0.6px 1.2px 25.3px rgba(0, 0, 0, 0.032),
+    1px 1.9px 42.1px rgba(0, 0, 0, 0.038),
+    1.6px 3.2px 69.3px rgba(0, 0, 0, 0.044),
+    2.8px 5.5px 121.1px rgba(0, 0, 0, 0.052), 6px 12px 262px rgba(0, 0, 0, 0.07);
 }
 
 /* 스크롤바 전체 스타일 */
@@ -34,7 +36,7 @@
 }
 
 .searchTEXT {
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
   margin-top: 20px;
   height: 30px;
   width: 200px;
@@ -46,7 +48,7 @@
 }
 
 .searchBTN {
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
   height: 36px;
   padding: 0 15px;
   border-left: none;
@@ -73,7 +75,7 @@
   border-radius: 20px;
   padding: 7px;
   transition: 0.3s;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
 }
 
 .link:hover {
@@ -95,12 +97,12 @@ h3 {
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
   cursor: pointer;
 }
 
 .add {
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
   background-color: #778;
   border-radius: 20px;
   padding: 9px;
@@ -112,17 +114,17 @@ h3 {
 
 .add:hover {
   color: #000;
-  transform: scale(1.05); /* 마우스를 올렸을 때 10% 크게 만듭니다. */
+  transform: scale(1.05);
 }
 
 .afpage,
 .bfpage {
-  color: #fff; /* 페이지 번호를 흰색으로 강조 */
+  color: #fff;
   margin-right: 10px;
   margin-bottom: 20px;
   margin-top: 20px;
-  font-family: 'Noto Sans KR', sans-serif;
-  background-color: #778; /* 중간 톤의 회색으로 배경 설정 */
+  font-family: "Noto Sans KR", sans-serif;
+  background-color: #778;
   border-radius: 20px;
   padding: 10px;
   transition: 0.3s;
@@ -145,16 +147,31 @@ h3 {
   position: relative;
   right: 50px;
   top: 15px;
-  background-color: #778; /* 중간 톤의 회색으로 배경 설정 */
+  background-color: #778;
   border-radius: 20px;
   padding: 10px;
   transition: 0.3s;
   font-size: 15px;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
 }
 
-.modal {
+.favoritebtn:hover {
+  color: #000;
+}
+
+.favoritemodal {
+  background-color: rgba(119, 119, 136, 0.93);
+  height: 422px;
+  width: 390px;
+  position: absolute;
+  bottom: 600px;
 }
 
 .favoriteexit {
+  position: absolute;
+  top: 390px;
+  right: 185px;
+  color: #fff;
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: bold;
 }

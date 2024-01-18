@@ -1,7 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap");
+
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
 
 body {
   background: linear-gradient(185deg, #161414, #202020, #2b2a2a, #3d3c3c);
+  background-repeat: no-repeat;
 }
 
 .borderTop {
