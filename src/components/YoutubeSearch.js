@@ -12,9 +12,56 @@ const YoutubeSearch = (props) => {
   const [nextPageToken, setNextPageToken] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const [pageTokens, setPageTokens] = useState([]);
+  const [favorites, setFavorites] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [comment, setComment] = useState('');
 
   const YOUR_API_KEY = 'AIzaSyBlPpQXDMpqrje1tKxq2V1QFMigaoGLzHo';
-  const playlist = useSelector((state) => state.playlist); // 추가
+  const playlist = useSelector((state) => state.playlist);
+
+  // 찜 목록에 추가
+  const addToFavorites = (video) => {
+    const isAlreadyInFavorites = favorites.find((v) => v.id.videoId === video.id.videoId);
+
+    if (isAlreadyInFavorites) {
+      toast('이미 찜 한 영상입니다.', {
+        position: 'top-center',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    } else {
+      setFavorites([...favorites, { ...video, comment: '' }]);
+      toast('찜 목록에 추가되었습니다.', {
+        position: 'top-center',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+  };
+
+  const removeFromFavorites = (videoId) => {
+    setFavorites(favorites.filter((video) => video.id.videoId !== videoId));
+  };
+
+  const handleCommentChange = (videoId, comment) => {
+    setFavorites(favorites.map((video) => (video.id.videoId === videoId ? { ...video, comment: comment } : video)));
+  };
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -108,10 +155,32 @@ const YoutubeSearch = (props) => {
           검색
         </button>
       </form>
-
       <Link to="/playlist" className={search.link}>
         재생목록 보기
       </Link>
+      <button className={search.favoritebtn} onClick={openModal}>
+        찜 목록 보기
+      </button>{' '}
+      {/* 수정 */}
+      {isModalOpen && (
+        <div className={search.modal}>
+          {favorites.map((favorite, index) => (
+            <div key={index}>
+              <h3>{favorite.snippet.title}</h3>
+              <input
+                type="text"
+                value={favorite.comment}
+                onChange={(e) => handleCommentChange(favorite.id.videoId, e.target.value)}
+                placeholder="평을 입력하세요."
+              />
+              <button onClick={() => removeFromFavorites(favorite.id.videoId)}>찜 제거</button>
+            </div>
+          ))}
+          <button className={search.favoriteexit} onClick={closeModal}>
+            닫기
+          </button>
+        </div>
+      )}
       {results.length > 0 ? (
         results.map((result, index) => (
           <div key={index}>
@@ -120,6 +189,7 @@ const YoutubeSearch = (props) => {
               <button className={search.add} onClick={() => handleAddToPlaylist(result)}>
                 재생목록에 추가
               </button>
+              <button onClick={() => addToFavorites(result)}>❤️</button>
             </div>
             <iframe
               className={search.video}
