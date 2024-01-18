@@ -149,7 +149,7 @@ const Playlist = (props) => {
               {isPlaying ? (
                 <img src={`${path}/images/stop.png`} alt="정지" />
               ) : (
-                <img src={`${path}/images/play.png`} alt="재생" />
+                <img src={`${path}/images/Play.png`} alt="재생" />
               )}
             </button>
             <button
