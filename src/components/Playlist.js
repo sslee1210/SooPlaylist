@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from 'react';
 import { connect } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { removeFromPlaylist, loadPlaylist } from '../actions';
-import { toast } from 'react-toastify';
 import playlistStyles from './Playlist.module.css';
 
 const Playlist = (props) => {
@@ -62,7 +61,6 @@ const Playlist = (props) => {
 
   const handleVideoRemove = (video) => {
     props.dispatch(removeFromPlaylist(video.id.videoId));
-    toast.info('비디오가 재생 목록에서 삭제되었습니다.');
   };
 
   const handlePrevVideo = () => {
