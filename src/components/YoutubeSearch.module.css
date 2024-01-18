@@ -1,0 +1,136 @@
+.container {
+  border-radius: 25px;
+  margin: 37px auto;
+  text-align: center;
+  width: 390px;
+  height: 844px;
+  background: linear-gradient(to bottom, #a8a8a8, #7a7979);
+  overflow: auto;
+}
+
+/* 스크롤바 전체 스타일 */
+.container::-webkit-scrollbar {
+  width: 10px; /* 스크롤바의 너비 */
+}
+
+/* 스크롤바 트랙(경로) */
+.container::-webkit-scrollbar-track {
+  background: #f1f1f1; /* 스크롤바 트랙의 배경색 */
+  border-radius: 20px;
+}
+
+/* 스크롤바 핸들 */
+.container::-webkit-scrollbar-thumb {
+  background: #888; /* 스크롤바 핸들의 배경색 */
+  border-radius: 20px;
+}
+
+.container::-webkit-scrollbar-thumb:hover {
+  background: #555; /* 스크롤바 핸들의 배경색 (호버 시) */
+}
+
+.searchTEXT {
+  font-family: 'Noto Sans KR', sans-serif;
+  margin-top: 20px;
+  height: 30px;
+  width: 200px;
+  padding: 3px 10px;
+  background-color: #f5f5f5; /* 어두운 회색 배경에 대비되는 밝은 회색 */
+  color: #333; /* 검은색과 대조되는 어두운 회색 */
+  border-radius: 2px 0 0 2px;
+  font-size: 13px;
+}
+
+.searchBTN {
+  font-family: 'Noto Sans KR', sans-serif;
+  height: 36px;
+  padding: 0 15px;
+  border-left: none;
+  border-radius: 0 2px 2px 0;
+  background-color: #888; /* 버튼을 강조하기 위한 어두운 회색 */
+  color: #fff; /* 어두운 배경에 대비되는 흰색 */
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.searchBTN:hover {
+  color: #000;
+  background-color: #ddd;
+  transition: all 0.2s ease-in-out;
+}
+
+.link {
+  text-decoration: none;
+  color: #fff;
+  position: relative;
+  right: 90px;
+  top: 15px;
+  background-color: #778; /* 중간 톤의 회색으로 배경 설정 */
+  border-radius: 20px;
+  padding: 7px;
+  transition: 0.3s;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.link:hover {
+  color: #000;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  margin-left: 38px;
+  margin-top: 38px;
+  color: #fff; /* 제목을 흰색으로 강조 */
+}
+
+h3 {
+  width: 150px;
+  font-size: 17px;
+  color: #fff;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-family: 'Noto Sans KR', sans-serif;
+  cursor: pointer;
+}
+
+.add {
+  font-family: 'Noto Sans KR', sans-serif;
+  background-color: #778;
+  border-radius: 20px;
+  padding: 9px;
+  font-size: 12px;
+  color: #ffffff;
+  margin: auto;
+  transition: 0.3s;
+}
+
+.add:hover {
+  color: #000;
+  transform: scale(1.05); /* 마우스를 올렸을 때 10% 크게 만듭니다. */
+}
+
+.afpage,
+.bfpage {
+  color: #fff; /* 페이지 번호를 흰색으로 강조 */
+  margin-right: 10px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  font-family: 'Noto Sans KR', sans-serif;
+  background-color: #778; /* 중간 톤의 회색으로 배경 설정 */
+  border-radius: 20px;
+  padding: 10px;
+  transition: 0.3s;
+}
+
+.afpage:hover,
+.bfpage:hover {
+  background-color: #666;
+  color: #000;
+}
+
+.icon {
+  font-size: 80px;
+  margin-top: 280px;
+}

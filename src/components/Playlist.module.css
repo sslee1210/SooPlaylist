@@ -1,0 +1,150 @@
+.container {
+  border-radius: 25px;
+  margin: 37px auto;
+  text-align: center;
+  width: 390px;
+  height: 844px;
+  background: linear-gradient(to bottom, #a8a8a8, #7a7979);
+  overflow: auto;
+}
+
+.container ul {
+  list-style: none;
+  color: #fff;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+}
+
+.container ul li {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+  padding-right: 30px;
+  border-top: 1px solid #fff;
+}
+
+.videoPlayer {
+  width: 350px;
+  height: 500px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.playlist {
+  height: 120px;
+  overflow-y: scroll;
+  padding-left: 0;
+}
+
+.playlist::-webkit-scrollbar {
+  width: 10px;
+}
+
+.playlist::-webkit-scrollbar-track {
+  background: linear-gradient(to bottom, #a8a8a8, #7a7979);
+  border-radius: 20px;
+}
+
+.playlist::-webkit-scrollbar-thumb {
+  background: #d3d2d2;
+  border-radius: 20px;
+}
+
+.playlist::-webkit-scrollbar-thumb:hover {
+  background: #252525;
+}
+
+.videoTitle {
+  display: block;
+  width: 233px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.backButton {
+  margin: 30px;
+  position: relative;
+  right: 125px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.3s;
+}
+
+.backButton:hover {
+  color: #252525;
+}
+
+.listButton {
+  position: relative;
+  top: 40px;
+  right: 130px;
+  margin-bottom: 40px;
+}
+
+.startbtn {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 13px;
+}
+
+.controlButton {
+  position: relative;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 20px;
+}
+
+.progressBarContainer {
+  border-radius: 10px;
+  margin-top: 10px;
+  width: 80%;
+  margin: 0 auto;
+  height: 10px;
+  background-color: #707070; /* 배경색 변경 */
+  cursor: pointer;
+}
+
+.progressBar {
+  border-radius: 10px;
+  margin-top: 10px;
+  height: 100%;
+  background-color: #ebebeb; /* 전경색 변경 */
+  transition: width 0.5s ease;
+}
+
+.delete {
+  font-size: 15px;
+  background: none;
+  border: none;
+  padding-left: 100px;
+}
+
+.nolist {
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+.playlistHeader {
+  color: #fff;
+  font-weight: bold;
+}
+
+.expanded {
+  height: 660px;
+}
+
+button {
+  border: none;
+  background: none;
+}
+
+p {
+  color: #fff;
+  margin-top: 100px;
+}
