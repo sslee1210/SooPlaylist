@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 import playlistStyles from './Playlist.module.css';
 
 const Playlist = (props) => {
+  const path = process.env.PUBLIC_URL;
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [selectedIndex, setSelectedIndex] = useState(null);
   const [player, setPlayer] = useState(null);
@@ -103,7 +104,6 @@ const Playlist = (props) => {
     if (selectedVideo && !player) {
       const newPlayer = new window.YT.Player(playerRef.current, {
         videoId: selectedVideo.id.videoId,
-        // 영상 크기를 720x405로 변경
         width: '720',
         height: '405',
         playerVars: {
@@ -140,20 +140,24 @@ const Playlist = (props) => {
           </div>
           <div className={playlistStyles.startbtn}>
             <button className={playlistStyles.controlButton} onClick={handlePrevVideo} disabled={selectedIndex <= 0}>
-              <img src="/images/Previous.png" alt="이전 음악" />
+              <img src={`${path}/images/Previous.png`} alt="이전 음악" />
             </button>
             <button
               className={playlistStyles.controlButton}
               onClick={() => handleVideoSelect(selectedVideo, selectedIndex)}
             >
-              {isPlaying ? <img src="/images/stop.png" alt="정지" /> : <img src="/images/play.png" alt="재생" />}
+              {isPlaying ? (
+                <img src={`${path}/images/stop.png`} alt="정지" />
+              ) : (
+                <img src={`${path}/images/play.png`} alt="재생" />
+              )}
             </button>
             <button
               className={playlistStyles.controlButton}
               onClick={handleNextVideo}
               disabled={selectedIndex >= props.playlist.length - 1}
             >
-              <img src="/images/next.png" alt="다음 음악" />
+              <img src={`${path}/images/next.png`} alt="다음 음악" />
             </button>
           </div>
         </>
