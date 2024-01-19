@@ -1,21 +1,21 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { connect, useSelector } from 'react-redux';
-import { addToPlaylist } from '../actions';
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import search from './YoutubeSearch.module.css';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { connect, useSelector } from "react-redux";
+import { addToPlaylist } from "../actions";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import search from "./YoutubeSearch.module.css";
 
 const YoutubeSearch = (props) => {
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
-  const [nextPageToken, setNextPageToken] = useState('');
-  const [tempComment, setTempComment] = useState('');
+  const [nextPageToken, setNextPageToken] = useState("");
+  const [tempComment, setTempComment] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [pageTokens, setPageTokens] = useState([]);
   const [favorites, setFavorites] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [comment, setComment] = useState('');
+  const [comment, setComment] = useState("");
   const [activeVideoId, setActiveVideoId] = useState(null);
 
   const handleTitleClick = (videoId) => {
@@ -26,25 +26,30 @@ const YoutubeSearch = (props) => {
     }
   };
 
-  const YOUR_API_KEY = 'AIzaSyBlPpQXDMpqrje1tKxq2V1QFMigaoGLzHo';
+  const YOUR_API_KEY = "AIzaSyBlPpQXDMpqrje1tKxq2V1QFMigaoGLzHo";
   const playlist = useSelector((state) => state.playlist);
 
   // 찜 목록에 추가
   const addToFavorites = (video, comment) => {
-    const isAlreadyInFavorites = favorites.find((v) => v.id.videoId === video.id.videoId);
+    const isAlreadyInFavorites = favorites.find(
+      (v) => v.id.videoId === video.id.videoId
+    );
 
     if (isAlreadyInFavorites) {
       const updatedFavorites = favorites.map((v) =>
         v.id.videoId === video.id.videoId ? { ...v, comment: comment } : v
       );
       setFavorites(updatedFavorites);
-      localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
+      localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
     } else {
-      const newFavorites = [...favorites, { ...video, comment: comment, isFavorited: true }];
+      const newFavorites = [
+        ...favorites,
+        { ...video, comment: comment, isFavorited: true },
+      ];
       setFavorites(newFavorites);
-      localStorage.setItem('favorites', JSON.stringify(newFavorites));
-      toast('찜 목록에 추가되었습니다.', {
-        position: 'top-center',
+      localStorage.setItem("favorites", JSON.stringify(newFavorites));
+      toast("찜 목록에 추가되었습니다.", {
+        position: "top-center",
         autoClose: 5000,
         hideProgressBar: false,
         closeOnClick: true,
@@ -56,13 +61,15 @@ const YoutubeSearch = (props) => {
   };
 
   const removeFromFavorites = (videoId) => {
-    const newFavorites = favorites.filter((video) => video.id.videoId !== videoId);
+    const newFavorites = favorites.filter(
+      (video) => video.id.videoId !== videoId
+    );
     setFavorites(newFavorites);
-    localStorage.setItem('favorites', JSON.stringify(newFavorites));
+    localStorage.setItem("favorites", JSON.stringify(newFavorites));
   };
 
   React.useEffect(() => {
-    const savedFavorites = localStorage.getItem('favorites');
+    const savedFavorites = localStorage.getItem("favorites");
     if (savedFavorites) {
       setFavorites(JSON.parse(savedFavorites));
     }
@@ -73,7 +80,7 @@ const YoutubeSearch = (props) => {
       video.id.videoId === videoId ? { ...video, comment: comment } : video
     );
     setFavorites(newFavorites);
-    localStorage.setItem('favorites', JSON.stringify(newFavorites));
+    localStorage.setItem("favorites", JSON.stringify(newFavorites));
   };
 
   const openModal = () => {
@@ -96,7 +103,7 @@ const YoutubeSearch = (props) => {
         setCurrentPage(1);
         setPageTokens([]);
       })
-      .catch((error) => console.log('Error:', error));
+      .catch((error) => console.log("Error:", error));
   };
 
   const handleNextPage = () => {
@@ -110,7 +117,7 @@ const YoutubeSearch = (props) => {
         setCurrentPage(currentPage + 1);
         setPageTokens([...pageTokens, nextPageToken]);
       })
-      .catch((error) => console.log('Error:', error));
+      .catch((error) => console.log("Error:", error));
   };
 
   const handlePreviousPage = () => {
@@ -126,21 +133,26 @@ const YoutubeSearch = (props) => {
         setCurrentPage(currentPage - 1);
         setPageTokens(pageTokens.slice(0, -1));
       })
-      .catch((error) => console.log('Error:', error));
+      .catch((error) => console.log("Error:", error));
   };
 
   const parseHTMLEntities = (str) => {
     const parser = new DOMParser();
-    const dom = parser.parseFromString('<!doctype html><body>' + str, 'text/html');
+    const dom = parser.parseFromString(
+      "<!doctype html><body>" + str,
+      "text/html"
+    );
     return dom.body.textContent;
   };
 
   const handleAddToPlaylist = (video) => {
-    const isAlreadyInPlaylist = playlist.find((v) => v.id.videoId === video.id.videoId);
+    const isAlreadyInPlaylist = playlist.find(
+      (v) => v.id.videoId === video.id.videoId
+    );
 
     if (isAlreadyInPlaylist) {
-      toast('재생 목록에 있는 음악입니다.', {
-        position: 'top-center',
+      toast("재생 목록에 있는 음악입니다.", {
+        position: "top-center",
         autoClose: 5000,
         hideProgressBar: false,
         closeOnClick: true,
@@ -150,8 +162,8 @@ const YoutubeSearch = (props) => {
       });
     } else {
       props.addToPlaylist(video);
-      toast('재생 목록에 추가되었습니다.', {
-        position: 'top-center',
+      toast("재생 목록에 추가되었습니다.", {
+        position: "top-center",
         autoClose: 5000,
         hideProgressBar: false,
         closeOnClick: true,
@@ -187,13 +199,23 @@ const YoutubeSearch = (props) => {
       {isModalOpen && (
         <div className={search.favoritemodal}>
           <h2>찜 목록</h2>
+          <p className={search.txt}>
+            ( 노래 제목을 누르면 한줄평을 남길 수 있어요 )
+          </p>
           {favorites.map((favorite, index) => (
             <div className={search.favoritemusic} key={index}>
-              <h3 onClick={() => handleTitleClick(favorite.id.videoId)}>{favorite.snippet.title}</h3>
-              <button className={search.favoritedelite} onClick={() => removeFromFavorites(favorite.id.videoId)}>
+              <h3 onClick={() => handleTitleClick(favorite.id.videoId)}>
+                {favorite.snippet.title}
+              </h3>
+              <button
+                className={search.favoritedelite}
+                onClick={() => removeFromFavorites(favorite.id.videoId)}
+              >
                 ❌
               </button>
-              <p className={search.favoriteone}>한줄평: {favorite.comment}</p>
+              <p className={search.favoriteone}>
+                <b>한줄평</b>: {favorite.comment}
+              </p>
               {favorite.id.videoId === activeVideoId && (
                 <div>
                   <input
@@ -208,7 +230,7 @@ const YoutubeSearch = (props) => {
                     className={search.favoritecheck}
                     onClick={() => {
                       handleCommentChange(favorite.id.videoId, tempComment);
-                      setTempComment('');
+                      setTempComment("");
                       handleTitleClick(null);
                     }}
                   >
@@ -226,7 +248,9 @@ const YoutubeSearch = (props) => {
       )}
       {results.length > 0 ? (
         results.map((result, index) => {
-          const favorite = favorites.find((favorite) => favorite.id.videoId === result.id.videoId);
+          const favorite = favorites.find(
+            (favorite) => favorite.id.videoId === result.id.videoId
+          );
           const isFavorited = favorite ? favorite.isFavorited : false;
 
           const handleFavoriteClick = () => {
@@ -241,10 +265,15 @@ const YoutubeSearch = (props) => {
             <div className={search.result} key={index}>
               <div className={search.title}>
                 <h3>{parseHTMLEntities(result.snippet.title)}</h3>
-                <button className={search.add} onClick={() => handleAddToPlaylist(result)}>
+                <button
+                  className={search.add}
+                  onClick={() => handleAddToPlaylist(result)}
+                >
                   재생목록에 추가
                 </button>
-                <button onClick={handleFavoriteClick}>{isFavorited ? '❤️' : '🤍'}</button>
+                <button onClick={handleFavoriteClick}>
+                  {isFavorited ? "❤️" : "🤍"}
+                </button>
               </div>
               <iframe
                 className={search.video}
@@ -266,7 +295,11 @@ const YoutubeSearch = (props) => {
           <button className={search.bfpage} onClick={handlePreviousPage}>
             이전 페이지
           </button>
-          <button className={search.afpage} onClick={handleNextPage} disabled={!nextPageToken}>
+          <button
+            className={search.afpage}
+            onClick={handleNextPage}
+            disabled={!nextPageToken}
+          >
             다음 페이지
           </button>
         </div>
