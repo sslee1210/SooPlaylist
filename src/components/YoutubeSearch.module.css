@@ -1,17 +1,21 @@
 .container {
-  border-radius: 25px;
   margin: 37px auto;
   text-align: center;
   width: 390px;
   height: 844px;
   background: linear-gradient(to bottom, #a8a8a8, #7a7979);
   overflow: auto;
-  box-shadow: 0.1px 0.3px 6.1px rgba(0, 0, 0, 0.018),
-    0.3px 0.6px 14.1px rgba(0, 0, 0, 0.026),
-    0.6px 1.2px 25.3px rgba(0, 0, 0, 0.032),
-    1px 1.9px 42.1px rgba(0, 0, 0, 0.038),
-    1.6px 3.2px 69.3px rgba(0, 0, 0, 0.044),
-    2.8px 5.5px 121.1px rgba(0, 0, 0, 0.052), 6px 12px 262px rgba(0, 0, 0, 0.07);
+  box-shadow: 0.1px 0.3px 6.1px rgba(0, 0, 0, 0.018), 0.3px 0.6px 14.1px rgba(0, 0, 0, 0.026),
+    0.6px 1.2px 25.3px rgba(0, 0, 0, 0.032), 1px 1.9px 42.1px rgba(0, 0, 0, 0.038),
+    1.6px 3.2px 69.3px rgba(0, 0, 0, 0.044), 2.8px 5.5px 121.1px rgba(0, 0, 0, 0.052),
+    6px 12px 262px rgba(0, 0, 0, 0.07);
+}
+
+.nav {
+  width: 390px;
+  position: fixed;
+  background: linear-gradient(to bottom, #a8a8a8, #7a7979);
+  backdrop-filter: blur(10px);
 }
 
 /* 스크롤바 전체 스타일 */
@@ -36,7 +40,7 @@
 }
 
 .searchTEXT {
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
   margin-top: 20px;
   height: 30px;
   width: 200px;
@@ -48,7 +52,7 @@
 }
 
 .searchBTN {
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
   height: 36px;
   padding: 0 15px;
   border-left: none;
@@ -69,13 +73,15 @@
   text-decoration: none;
   color: #fff;
   position: relative;
-  right: 70px;
-  top: 15px;
+  right: 50px;
+  padding: 8px;
+  margin-top: 10px;
+  font-size: 13px;
+  margin-bottom: 10px;
   background-color: #778; /* 중간 톤의 회색으로 배경 설정 */
   border-radius: 20px;
-  padding: 7px;
   transition: 0.3s;
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
 }
 
 .link:hover {
@@ -87,22 +93,23 @@
   align-items: center;
   margin-left: 38px;
   margin-top: 38px;
-  color: #fff; /* 제목을 흰색으로 강조 */
+  color: #fff;
 }
 
 h3 {
   width: 150px;
   font-size: 17px;
+  margin-left: 20px;
   color: #fff;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
   cursor: pointer;
 }
 
 .add {
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
   background-color: #778;
   border-radius: 20px;
   padding: 9px;
@@ -123,7 +130,7 @@ h3 {
   margin-right: 10px;
   margin-bottom: 20px;
   margin-top: 20px;
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
   background-color: #778;
   border-radius: 20px;
   padding: 10px;
@@ -145,14 +152,16 @@ h3 {
   text-decoration: none;
   color: #fff;
   position: relative;
-  right: 50px;
-  top: 15px;
+  right: 30px;
+
   background-color: #778;
   border-radius: 20px;
-  padding: 10px;
+  padding: 8px;
+  margin-top: 10px;
+  font-size: 13px;
+  margin-bottom: 10px;
   transition: 0.3s;
-  font-size: 15px;
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
 }
 
 .favoritebtn:hover {
@@ -160,18 +169,95 @@ h3 {
 }
 
 .favoritemodal {
-  background-color: rgba(119, 119, 136, 0.93);
-  height: 422px;
+  background-color: rgba(74, 62, 97, 0.93);
+  backdrop-filter: blur(2px);
+  height: 844px;
   width: 390px;
-  position: absolute;
-  bottom: 600px;
+  position: fixed;
+  top: 37px;
+  z-index: 100;
+  overflow-y: scroll;
+}
+
+.favoritemodal::-webkit-scrollbar {
+  width: 10px;
+}
+
+.favoritemodal::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 20px;
+}
+
+.favoritemodal::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 20px;
+}
+
+.favoritemodal::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 .favoriteexit {
   position: absolute;
-  top: 390px;
-  right: 185px;
+  top: 25px;
+  right: 50px;
   color: #fff;
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
   font-weight: bold;
+}
+
+.favoritetext {
+  position: relative;
+  top: 40px;
+  right: 150px;
+  border-radius: 20px;
+  padding: 5px;
+}
+
+.favoritedelite {
+  color: #fff;
+  height: 20px;
+  font-family: 'Noto Sans KR', sans-serif;
+  margin-top: 18px;
+  font-size: 17px;
+}
+
+.favoritemusic {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  padding: 15px;
+}
+
+.favoritecheck {
+  color: #000;
+  font-weight: bold;
+  position: relative;
+  top: 10px;
+  border-radius: 20px;
+  padding: 7px;
+  right: 35px;
+  background-color: #fff;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+}
+
+.favoritecheck:active {
+  box-shadow: none;
+  transform: translateY(-3px);
+}
+
+.favoriteone {
+  color: #f6ff93;
+  margin-top: 0;
+  text-align: left;
+  margin-left: 25px;
+}
+
+h2 {
+  color: #fff;
+}
+
+.result {
+  margin-top: 120px;
 }

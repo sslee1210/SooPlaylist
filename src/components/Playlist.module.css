@@ -1,5 +1,4 @@
 .container {
-  border-radius: 25px;
   margin: 37px auto;
   text-align: center;
   width: 390px;
@@ -23,9 +22,10 @@
 .container ul li {
   cursor: pointer;
   display: flex;
-  justify-content: center;
+  justify-content: left;
   padding-top: 10px;
-  padding-right: 30px;
+  padding-bottom: 10px;
+  text-align: left;
   border-top: 1px solid #fff;
 }
 
@@ -63,6 +63,7 @@
 .videoTitle {
   display: block;
   width: 233px;
+  margin-left: 20px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
