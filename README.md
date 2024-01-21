@@ -1,4 +1,4 @@
-# Soo Playlist
+# 🎵 Soo Playlist
 
 #### 사용 기술 <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=HTML5&logoColor=white"/> <img src="https://img.shields.io/badge/Java--Script-F7DF1E?style=flat-square&logo=JAVASCRIPT&logoColor=black"/> <img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=React&logoColor=black"/> <img src="https://img.shields.io/badge/Redux-764ABC?style=flat-square&logo=Redux&logoColor=white"/>
 #### 작업 기간 - 2024년 1월 15일 → 2024년 1월 21일
@@ -105,4 +105,4 @@
 # 프로젝트 후기
 
 
-# 🚌[프로젝트 바로가기](https://sslee1210.github.io/SooPlaylist/)
+# 🎶[프로젝트 바로가기](https://sslee1210.github.io/SooPlaylist/)
