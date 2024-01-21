@@ -42,7 +42,7 @@
 
 ## 재생목록 보기
 
-![Directory](./public/images/page02.png)
+![재생목록](https://github.com/sslee1210/SooPlaylist/assets/142865231/39a3c2db-0dff-46e6-8dc3-a109bad8ead4)
 
 **1. 재생목록에 저장된 음악 리스트**
     
