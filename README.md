@@ -45,7 +45,9 @@
 ![재생목록](https://github.com/sslee1210/SooPlaylist/assets/142865231/39a3c2db-0dff-46e6-8dc3-a109bad8ead4)
 
 **1. 재생목록에 저장된 음악 리스트**
-    
+
+![재생목록 추가](https://github.com/sslee1210/SooPlaylist/assets/142865231/e51662cd-de11-47ba-985f-b066fbe9249e)
+
 **2. react-youtube와 youtube-player 라이브러리를 활용한 동영상의 재생을 프로그래밍 방식으로 제어**
 
 ---
