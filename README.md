@@ -30,37 +30,27 @@
 ## 페이지 구성 & 주요 로직
 
 ## 메인 페이지
-
+![image 7](https://github.com/sslee1210/SooPlaylist/assets/142865231/b539da47-1278-4a9c-ad5a-09e012b9995b)
 ![수플 검색](https://github.com/sslee1210/SooPlaylist/assets/142865231/d8565bcd-fa8e-4801-972b-47e8f61f3684)
 
-- 고속버스 배차 조회를 위해 REST API 통신
-- 공식 사이트와 동일한 디자인 styled-components 작업
+- 유튜브 음악 관련 영상을 받아오기 위한 유튜브 API 통신
+- 재생목록과 찜 목록 구현
 - **redux-toolkit 사용 프로젝트 전역 상태 관리**
 
 ---
 
 
-## 옵션 선택 박스
+## 재생목록 보기
 
 ![Directory](./public/images/page02.png)
 
-**1. 출/도착지 선택 클릭 시 터미널 리스트를 선택하는 모달창 팝업**
+**1. 재생목록에 저장된 음악 리스트**
     
-**2. 좌석 등급 선택 시 해당 state 변경**
-
-- 좌석을 선택하면 onClick ⇒ { dispatch } 날짜 상태 변경
-    
-**3. datepicker 라이브러리를 활용한 날짜 제어**
-
-- 날짜를 선택하면 onChange ⇒ { dispatch } 날짜 상태 변경
-
-**4. 조회하기 클릭 시 주의 사항 알림 창 팝업 후 배차 조회 페이지로 이동**
+**2. react-youtube와 youtube-player 라이브러리를 활용한 동영상의 재생을 프로그래밍 방식으로 제어**
 
 ---
 
-![Directory](./public/images/page03.png)
-
-## 터미널 선택 모달창
+## 찜 목록 모달창
 
 ### 주요 로직
 
