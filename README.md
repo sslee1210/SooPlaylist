@@ -3,26 +3,24 @@
 #### 사용 기술 <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=HTML5&logoColor=white"/> <img src="https://img.shields.io/badge/Java--Script-F7DF1E?style=flat-square&logo=JAVASCRIPT&logoColor=black"/> <img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=React&logoColor=black"/> <img src="https://img.shields.io/badge/Redux-764ABC?style=flat-square&logo=Redux&logoColor=white"/>
 #### 작업 기간 - 2024년 1월 15일 → 2024년 1월 21일
 #### 작업 유형 - 개인프로젝트(포트폴리오)
-
-![메인이미지](./public/images/readme_cover_img.png)
-
+<p align="center">
+  <img src="https://github.com/sslee1210/SooPlaylist/assets/142865231/b539da47-1278-4a9c-ad5a-09e012b9995b.png"  width="300" height="auto"/>
+</p>
 
 
 ## 프로젝트 목표
 
 ### redux-toolkit으로 작업하기
 
-💡 **상태 관리가 효율적이면 작업이 더 용이해지지 않을까 생각했다.**
+💡 **상태 관리를 효율적이게 할 수 있는 방법이 뭐가 있을까 고민했다.**
 
-이번 프로젝트는 REST API - URL에 들어가는 값이 조건에 따라 달라지며 state의 변화를
-화면에 바로 출력해야 해서 redux-toolkit으로 작업하는 것이 목표였다.
+플레이리스트를 바로 저장하거나 삭제할 수 있게 redux-toolkit으로 작업하는 것을 목표로 두었다.
 
-### 실시간으로 REST API 요청하기
+### API 요청하기
 
-💡 현재 시간에서 예매 가능한 목록을 찾아서 출력하는 것에 집중했다.
+💡 **유튜브 API를 받아와 연결해보기**
 
-총 223개의 터미널과 출발지 / 목적지 / 좌석 / 날짜에 따라 달라지는 결과의 경우의 수가
-많았기 때문에 실시간으로 원하는 결과를 출력하는 것이 이번 프로젝트의 목표였다.
+음악 관련 API를 찾아보다가 유튜브 API가 하루 할당량은 다른 음악 API들보다 적지만 사용하기에 제일 깔끔하기에 API를 받아왔다.
 
 ## 디렉토리 구조
 
