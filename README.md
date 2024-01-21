@@ -24,7 +24,7 @@
 
 ## 디렉토리 구조
 
-![Directory](./public/images/directory_build.png)
+![수플 디렉토리](https://github.com/sslee1210/SooPlaylist/assets/142865231/6a4616e1-79cc-4b13-ab5e-acff680f64ba)
 
 
 ## 페이지 구성 & 주요 로직
