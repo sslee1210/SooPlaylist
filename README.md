@@ -50,6 +50,23 @@
 
 **2. react-youtube와 youtube-player 라이브러리를 활용한 동영상의 재생을 프로그래밍 방식으로 제어**
 
+![재생](https://github.com/sslee1210/SooPlaylist/assets/142865231/b3f9db7d-c173-4f0a-a3ac-434907b47772)
+
+---
+
+
+## 찜 목록
+
+![재생목록](https://github.com/sslee1210/SooPlaylist/assets/142865231/39a3c2db-0dff-46e6-8dc3-a109bad8ead4)
+
+**1. 찜 목록에 저장된 음악**
+
+![재생목록 추가](https://github.com/sslee1210/SooPlaylist/assets/142865231/e51662cd-de11-47ba-985f-b066fbe9249e)
+
+**2. 음악 제목을 누르면 간단한 한줄평 남기기**
+
+![재생](https://github.com/sslee1210/SooPlaylist/assets/142865231/b3f9db7d-c173-4f0a-a3ac-434907b47772)
+
 ---
 
 ## 찜 목록 모달창
