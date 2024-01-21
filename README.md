@@ -57,7 +57,7 @@
 
 ## 찜 목록
 
-![재생목록](https://github.com/sslee1210/SooPlaylist/assets/142865231/39a3c2db-0dff-46e6-8dc3-a109bad8ead4)
+![찜 목록](https://github.com/sslee1210/SooPlaylist/assets/142865231/5e22cc30-c0e1-4766-97fb-bb664cede3eb)
 
 **1. 찜 목록에 저장된 음악**
 
