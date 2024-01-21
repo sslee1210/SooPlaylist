@@ -31,7 +31,7 @@
 
 ## 메인 페이지
 
-![Directory](./public/images/page01.png)
+![수플 검색](https://github.com/sslee1210/SooPlaylist/assets/142865231/d8565bcd-fa8e-4801-972b-47e8f61f3684)
 
 - 고속버스 배차 조회를 위해 REST API 통신
 - 공식 사이트와 동일한 디자인 styled-components 작업
