@@ -14,7 +14,7 @@
 
 💡 **상태 관리를 효율적이게 할 수 있는 방법이 뭐가 있을까**
 
-플레이리스트를 바로 저장하거나 삭제할 수 있게 redux로 작업하는 것을 목표로 두었다.
+플레이리스트를 바로 저장하거나 삭제할 수 있게 REDUX와 Local Storage로 작업하는 것을 목표로 두었다.
 
 ### API 요청하기
 
@@ -32,7 +32,7 @@
 ## 메인 페이지
 
  **검색을 통해 유튜브에서 내가 원하는 음악을 가져오고 재생목록과 찜 목록에 추가할 수 있다.**<br/>
- **reduce를 통해 브라우저에서 데이터를 저장한다.**
+ **REDUX를 통해 브라우저에서 데이터를 저장한다.**
 
 <p align="center">
 <img src="https://github.com/sslee1210/SooPlaylist/assets/142865231/b539da47-1278-4a9c-ad5a-09e012b9995b.png"  width="300" height="auto"/>
@@ -129,6 +129,7 @@ const playlist = useSelector((state) => state.playlist);
 
 ## 재생목록
 **리스트를 통해 내가 저장한 음악 목록을 볼 수 있다.**<br/>
+**이미 저장된 음악은 중복 저장이 되지 않는다.**<br/>
 **유튜브와 관련된 라이브러리를 사용하여 동영상 재생 방식을 내가 원하는 방식으로 구현했다.**
 <p align="center">
 <img src="https://github.com/sslee1210/SooPlaylist/assets/142865231/39a3c2db-0dff-46e6-8dc3-a109bad8ead4.png"  width="300" height="auto"/>
@@ -205,6 +206,7 @@ if (isAlreadyInPlaylist) {
 ## 찜 목록
 
 **검색된 음악의 제목 옆 하트를 누르면 찜 목록에 저장이 된다.**<br/>
+**이미 찜 한 음악은 중복 저장이 안된다.**<br/>
 **찜이 된 음악을 누르면 간단하게 한줄평을 적을 수 있다.**
 <p align="center">
 <img src="https://github.com/sslee1210/SooPlaylist/assets/142865231/5e22cc30-c0e1-4766-97fb-bb664cede3eb.png"  width="300" height="auto"/>
