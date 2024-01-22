@@ -4,7 +4,7 @@
 #### 작업 기간 - 2024년 1월 15일 → 2024년 1월 21일
 #### 작업 유형 - 개인프로젝트
 <p align="center">
-  <img src="https://github.com/sslee1210/SooPlaylist/assets/142865231/b539da47-1278-4a9c-ad5a-09e012b9995b.png"  width="200" height="auto"/>
+  <img src="https://github.com/sslee1210/SooPlaylist/assets/142865231/b539da47-1278-4a9c-ad5a-09e012b9995b.png"  width="250" height="auto"/>
 </p>
 
 
@@ -31,8 +31,8 @@
 
 ## 메인 페이지
 <p align="center">
-<img src="https://github.com/sslee1210/SooPlaylist/assets/142865231/b539da47-1278-4a9c-ad5a-09e012b9995b.png"  width="200" height="auto"/>
-<img src="https://github.com/sslee1210/SooPlaylist/assets/142865231/d8565bcd-fa8e-4801-972b-47e8f61f3684.png"  width="200" height="auto"/>
+<img src="https://github.com/sslee1210/SooPlaylist/assets/142865231/b539da47-1278-4a9c-ad5a-09e012b9995b.png"  width="300" height="auto"/>
+<img src="https://github.com/sslee1210/SooPlaylist/assets/142865231/d8565bcd-fa8e-4801-972b-47e8f61f3684.png"  width="300" height="auto"/>
 </p>
 
 - 유튜브 음악 관련 영상을 받아오기 위한 유튜브 API 통신
@@ -114,7 +114,7 @@ const playlist = useSelector((state) => state.playlist);
 ## 재생목록
 
 <p align="center">
-<img src="https://github.com/sslee1210/SooPlaylist/assets/142865231/39a3c2db-0dff-46e6-8dc3-a109bad8ead4.png"  width="200" height="auto"/>
+<img src="https://github.com/sslee1210/SooPlaylist/assets/142865231/39a3c2db-0dff-46e6-8dc3-a109bad8ead4.png"  width="300" height="auto"/>
 </p>
 
 **1. 재생 목록에 저장된 음악 리스트**
@@ -188,7 +188,7 @@ if (isAlreadyInPlaylist) {
 ## 찜 목록
 
 <p align="center">
-<img src="https://github.com/sslee1210/SooPlaylist/assets/142865231/5e22cc30-c0e1-4766-97fb-bb664cede3eb.png"  width="200" height="auto"/>
+<img src="https://github.com/sslee1210/SooPlaylist/assets/142865231/5e22cc30-c0e1-4766-97fb-bb664cede3eb.png"  width="300" height="auto"/>
 </p>
 
 **1. 찜 목록에 저장된 음악**
