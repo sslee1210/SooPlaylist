@@ -118,6 +118,9 @@ const playlist = useSelector((state) => state.playlist);
 </p>
 
 **1. 재생 목록에 저장된 음악 리스트**
+
+<img src="https://github.com/sslee1210/SooPlaylist/assets/142865231/e51662cd-de11-47ba-985f-b066fbe9249e.png"  width="200" height="auto"/>
+
 ```
 // 재생목록에 중복된 음악이 있을 시 추가 x
 
@@ -144,9 +147,11 @@ if (isAlreadyInPlaylist) {
     });
   }
 ```
-<img src="https://github.com/sslee1210/SooPlaylist/assets/142865231/e51662cd-de11-47ba-985f-b066fbe9249e.png"  width="200" height="auto"/>
 
 **2. react-youtube와 youtube-player를 이용하여 프로그래밍 방식으로 동영상 재생 제어**
+
+<img src="https://github.com/sslee1210/SooPlaylist/assets/142865231/b3f9db7d-c173-4f0a-a3ac-434907b47772.png"  width="200" height="auto"/>
+
 ```
  // YouTube Player API를 이용하여 비디오 플레이어를 생성하고 조작하는 로직을 정의한 이펙트 훅
   useEffect(() => {
@@ -176,7 +181,6 @@ if (isAlreadyInPlaylist) {
     }
   }, [selectedVideo]);
 ```
-<img src="https://github.com/sslee1210/SooPlaylist/assets/142865231/b3f9db7d-c173-4f0a-a3ac-434907b47772.png"  width="200" height="auto"/>
 
 ---
 
@@ -188,6 +192,9 @@ if (isAlreadyInPlaylist) {
 </p>
 
 **1. 찜 목록에 저장된 음악**
+
+<img src="https://github.com/sslee1210/SooPlaylist/assets/142865231/e7b65117-fbf1-44da-9cc9-f96be4b62327.png"  width="200" height="auto"/>
+
 ```
 // 이미 찜 목록에 있는지 검사
 const isAlreadyInFavorites = favorites.find((v) => v.id.videoId === video.id.videoId);
@@ -223,9 +230,11 @@ toast('찜 목록에 추가되었습니다.', {
     localStorage.setItem('favorites', JSON.stringify(newFavorites));
   };
 ```
-<img src="https://github.com/sslee1210/SooPlaylist/assets/142865231/e7b65117-fbf1-44da-9cc9-f96be4b62327.png"  width="200" height="auto"/>
 
 **2. 음악 제목을 누르면 간단한 한줄평 남기기**
+
+<img src="https://github.com/sslee1210/SooPlaylist/assets/142865231/7332223a-8984-4588-9c05-0d90f64fe2fc.png"  width="200" height="auto"/>
+
 ```
 // 코멘트 변경을 처리하는 함수
 const handleCommentChange = (videoId, comment) => {
@@ -236,7 +245,7 @@ setFavorites(newFavorites);
 localStorage.setItem('favorites', JSON.stringify(newFavorites));
  };
 ```
-<img src="https://github.com/sslee1210/SooPlaylist/assets/142865231/7332223a-8984-4588-9c05-0d90f64fe2fc.png"  width="200" height="auto"/>
+
 
 ---
 
