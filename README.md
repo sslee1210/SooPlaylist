@@ -91,6 +91,7 @@ const YOUR_API_KEY = '내 API키';
 ``` 
 - 재생목록과 찜 목록 구현
 ```
+// 재생 목록에 추가하는 함수
 const handleAddToPlaylist = (video) => {
 const isAlreadyInPlaylist = playlist.find((v) => v.id.videoId === video.id.videoId);
 ```
@@ -134,7 +135,7 @@ const isAlreadyInPlaylist = playlist.find((v) => v.id.videoId === video.id.video
 ```
  
 - react-toastify 라이브러리를 활용하여 알림창 커스터마이즈
-- **redux-toolkit 사용 프로젝트 전역 상태 관리**
+- **redux를 사용한 상태 관리**
 
 ---
 
@@ -150,7 +151,35 @@ const isAlreadyInPlaylist = playlist.find((v) => v.id.videoId === video.id.video
 <img src="https://github.com/sslee1210/SooPlaylist/assets/142865231/e51662cd-de11-47ba-985f-b066fbe9249e.png"  width="200" height="auto"/>
 
 **2. react-youtube와 youtube-player를 이용하여 프로그래밍 방식으로 동영상 재생 제어**
-
+```
+ // YouTube Player API를 이용하여 비디오 플레이어를 생성하고 조작하는 로직을 정의한 이펙트 훅
+  useEffect(() => {
+    if (selectedVideo && !player) {
+      const newPlayer = new window.YT.Player(playerRef.current, {
+        videoId: selectedVideo.id.videoId,
+        width: '720',
+        height: '405',
+        playerVars: {
+          controls: 0,
+        },
+        events: {
+          onReady: (event) => {
+            setPlayer(event.target);
+            setDuration(event.target.getDuration());
+            event.target.playVideo();
+          },
+          onStateChange: (event) => {
+            if (event.data === window.YT.PlayerState.PLAYING) {
+              setIsPlaying(true);
+            } else if (event.data === window.YT.PlayerState.PAUSED) {
+              setIsPlaying(false);
+            }
+          },
+        },
+      });
+    }
+  }, [selectedVideo]);
+```
 <img src="https://github.com/sslee1210/SooPlaylist/assets/142865231/b3f9db7d-c173-4f0a-a3ac-434907b47772.png"  width="200" height="auto"/>
 
 ---
