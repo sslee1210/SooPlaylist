@@ -30,9 +30,10 @@
 ## 페이지 구성 & 주요 로직
 
 ## 메인 페이지
-
+<p align="center">
 <img src="https://github.com/sslee1210/SooPlaylist/assets/142865231/b539da47-1278-4a9c-ad5a-09e012b9995b.png"  width="200" height="auto"/>
 <img src="https://github.com/sslee1210/SooPlaylist/assets/142865231/d8565bcd-fa8e-4801-972b-47e8f61f3684.png"  width="200" height="auto"/>
+</p>
 
 - 유튜브 음악 관련 영상을 받아오기 위한 유튜브 API 통신
 - 재생목록과 찜 목록 구현
