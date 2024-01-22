@@ -226,7 +226,16 @@ toast('찜 목록에 추가되었습니다.', {
 <img src="https://github.com/sslee1210/SooPlaylist/assets/142865231/e7b65117-fbf1-44da-9cc9-f96be4b62327.png"  width="200" height="auto"/>
 
 **2. 음악 제목을 누르면 간단한 한줄평 남기기**
-
+```
+// 코멘트 변경을 처리하는 함수
+const handleCommentChange = (videoId, comment) => {
+const newFavorites = favorites.map((video) =>
+  video.id.videoId === videoId ? { ...video, comment: comment } : video
+ );
+setFavorites(newFavorites);
+localStorage.setItem('favorites', JSON.stringify(newFavorites));
+ };
+```
 <img src="https://github.com/sslee1210/SooPlaylist/assets/142865231/7332223a-8984-4588-9c05-0d90f64fe2fc.png"  width="200" height="auto"/>
 
 ---
