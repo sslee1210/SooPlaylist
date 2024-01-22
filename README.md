@@ -2,7 +2,7 @@
 
 #### 사용 기술 <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=HTML5&logoColor=white"/> <img src="https://img.shields.io/badge/Java--Script-F7DF1E?style=flat-square&logo=JAVASCRIPT&logoColor=black"/> <img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=React&logoColor=black"/> <img src="https://img.shields.io/badge/Redux-764ABC?style=flat-square&logo=Redux&logoColor=white"/>
 #### 작업 기간 - 2024년 1월 15일 → 2024년 1월 21일
-#### 작업 유형 - 개인프로젝트(포트폴리오)
+#### 작업 유형 - 개인프로젝트
 <p align="center">
   <img src="https://github.com/sslee1210/SooPlaylist/assets/142865231/b539da47-1278-4a9c-ad5a-09e012b9995b.png"  width="200" height="auto"/>
 </p>
@@ -36,7 +36,103 @@
 </p>
 
 - 유튜브 음악 관련 영상을 받아오기 위한 유튜브 API 통신
+```
+const YOUR_API_KEY = '내 API키';
+
+...
+
+// 검색 양식을 제출했을 때 호출되는 함수
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    fetch(
+      `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${query} offical music video&maxResults=10&order=viewCount&key=${YOUR_API_KEY}`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        setResults(data.items);
+        setNextPageToken(data.nextPageToken);
+        setCurrentPage(1);
+        setPageTokens([]);
+      })
+      .catch((error) => console.log('Error:', error));
+  };
+
+  // 다음 페이지로 이동하는 함수
+  const handleNextPage = () => {
+    fetch(
+      `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${query} offical music video&maxResults=10&order=viewCount&pageToken=${nextPageToken}&key=${YOUR_API_KEY}`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        setResults(data.items);
+        setNextPageToken(data.nextPageToken);
+        setCurrentPage(currentPage + 1);
+        setPageTokens([...pageTokens, nextPageToken]);
+      })
+      .catch((error) => console.log('Error:', error));
+  };
+
+  // 이전 페이지로 이동하는 함수
+  const handlePreviousPage = () => {
+    if (pageTokens.length === 0) return;
+    const prevPageToken = pageTokens[pageTokens.length - 1];
+    fetch(
+      `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${query} offical music video&maxResults=10&order=viewCount&pageToken=${prevPageToken}&key=${YOUR_API_KEY}`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        setResults(data.items);
+        setNextPageToken(data.prevPageToken);
+        setCurrentPage(currentPage - 1);
+        setPageTokens(pageTokens.slice(0, -1));
+      })
+      .catch((error) => console.log('Error:', error));
+  };
+``` 
 - 재생목록과 찜 목록 구현
+```
+const handleAddToPlaylist = (video) => {
+const isAlreadyInPlaylist = playlist.find((v) => v.id.videoId === video.id.videoId);
+```
+ 
+```
+// 찜 목록에 추가하는 함수
+  const addToFavorites = (video, comment) => {
+    // 이미 찜 목록에 있는지 검사
+    const isAlreadyInFavorites = favorites.find((v) => v.id.videoId === video.id.videoId);
+
+    // 이미 찜 목록에 있다면, 찜 목록을 업데이트
+    if (isAlreadyInFavorites) {
+      const updatedFavorites = favorites.map((v) =>
+        v.id.videoId === video.id.videoId ? { ...v, comment: comment } : v
+      );
+      setFavorites(updatedFavorites);
+      localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
+    } else {
+      // 찜 목록에 없다면, 찜 목록에 추가
+      const newFavorites = [...favorites, { ...video, comment: comment, isFavorited: true }];
+      setFavorites(newFavorites);
+      localStorage.setItem('favorites', JSON.stringify(newFavorites));
+      toast('찜 목록에 추가되었습니다.', {
+        position: 'top-center',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+  };
+
+  // 찜 목록에서 삭제하는 함수
+  const removeFromFavorites = (videoId) => {
+    const newFavorites = favorites.filter((video) => video.id.videoId !== videoId);
+    setFavorites(newFavorites);
+    localStorage.setItem('favorites', JSON.stringify(newFavorites));
+  };
+```
+ 
 - react-toastify 라이브러리를 활용하여 알림창 커스터마이즈
 - **redux-toolkit 사용 프로젝트 전역 상태 관리**
 
@@ -76,7 +172,7 @@
 
 ---
 
-# 📜[작업일지 보러가기](https://neighborly-goal-bcc.notion.site/d11289c41ca04019bf63eabcd548dbe8?v=b781ccbaad4b4c4a9fa651a96f0061c5&pvs=4/)
+## 📜[작업일지 보러가기](https://neighborly-goal-bcc.notion.site/d11289c41ca04019bf63eabcd548dbe8?v=b781ccbaad4b4c4a9fa651a96f0061c5&pvs=4/)
 
 # 문제 및 해결
 ## 무슨 문제?
