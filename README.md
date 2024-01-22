@@ -147,7 +147,32 @@ const isAlreadyInPlaylist = playlist.find((v) => v.id.videoId === video.id.video
 </p>
 
 **1. 재생 목록에 저장된 음악 리스트**
+```
+// 재생목록에 중복된 음악이 있을 시 추가 x
 
+if (isAlreadyInPlaylist) {
+  toast('재생 목록에 있는 음악입니다.', {
+  position: 'top-center',
+  autoClose: 5000,
+  hideProgressBar: false,
+  closeOnClick: true,
+  pauseOnHover: true,
+  draggable: true,
+  progress: undefined,
+  });
+    } else {
+    props.addToPlaylist(video);
+    toast('재생 목록에 추가되었습니다.', {
+      position: 'top-center',
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  }
+```
 <img src="https://github.com/sslee1210/SooPlaylist/assets/142865231/e51662cd-de11-47ba-985f-b066fbe9249e.png"  width="200" height="auto"/>
 
 **2. react-youtube와 youtube-player를 이용하여 프로그래밍 방식으로 동영상 재생 제어**
