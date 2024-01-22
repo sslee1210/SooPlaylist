@@ -75,6 +75,7 @@
 
 ---
 
+# 🎶[작업일지 보러가기](https://neighborly-goal-bcc.notion.site/d11289c41ca04019bf63eabcd548dbe8?v=b781ccbaad4b4c4a9fa651a96f0061c5&pvs=4/)
 
 # 문제 및 해결
 ## 무슨 문제?
