@@ -98,44 +98,15 @@ const isAlreadyInPlaylist = playlist.find((v) => v.id.videoId === video.id.video
  
 ```
 // 찜 목록에 추가하는 함수
-  const addToFavorites = (video, comment) => {
-    // 이미 찜 목록에 있는지 검사
-    const isAlreadyInFavorites = favorites.find((v) => v.id.videoId === video.id.videoId);
-
-    // 이미 찜 목록에 있다면, 찜 목록을 업데이트
-    if (isAlreadyInFavorites) {
-      const updatedFavorites = favorites.map((v) =>
-        v.id.videoId === video.id.videoId ? { ...v, comment: comment } : v
-      );
-      setFavorites(updatedFavorites);
-      localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
-    } else {
-      // 찜 목록에 없다면, 찜 목록에 추가
-      const newFavorites = [...favorites, { ...video, comment: comment, isFavorited: true }];
-      setFavorites(newFavorites);
-      localStorage.setItem('favorites', JSON.stringify(newFavorites));
-      toast('찜 목록에 추가되었습니다.', {
-        position: 'top-center',
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-    }
-  };
-
-  // 찜 목록에서 삭제하는 함수
-  const removeFromFavorites = (videoId) => {
-    const newFavorites = favorites.filter((video) => video.id.videoId !== videoId);
-    setFavorites(newFavorites);
-    localStorage.setItem('favorites', JSON.stringify(newFavorites));
-  };
+const addToFavorites = (video, comment) => {
 ```
  
 - react-toastify 라이브러리를 활용하여 알림창 커스터마이즈
 - **redux를 사용한 상태 관리**
+```
+// 리덕스 스토어에서 재생 목록을 가져옵니다.
+const playlist = useSelector((state) => state.playlist);
+```
 
 ---
 
@@ -217,7 +188,41 @@ if (isAlreadyInPlaylist) {
 </p>
 
 **1. 찜 목록에 저장된 음악**
+```
+// 이미 찜 목록에 있는지 검사
+const isAlreadyInFavorites = favorites.find((v) => v.id.videoId === video.id.videoId);
 
+// 이미 찜 목록에 있다면, 찜 목록을 업데이트
+if (isAlreadyInFavorites) {
+  const updatedFavorites = favorites.map((v) =>
+    v.id.videoId === video.id.videoId ? { ...v, comment: comment } : v
+  );
+setFavorites(updatedFavorites);
+localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
+} else {
+// 찜 목록에 없다면, 찜 목록에 추가
+const newFavorites = [...favorites, { ...video, comment: comment, isFavorited: true }];
+setFavorites(newFavorites);
+localStorage.setItem('favorites', JSON.stringify(newFavorites));
+toast('찜 목록에 추가되었습니다.', {
+  position: 'top-center',
+  autoClose: 5000,
+  hideProgressBar: false,
+  closeOnClick: true,
+  pauseOnHover: true,
+  draggable: true,
+  progress: undefined,
+});
+  }
+  };
+
+  // 찜 목록에서 삭제하는 함수
+  const removeFromFavorites = (videoId) => {
+  const newFavorites = favorites.filter((video) => video.id.videoId !== videoId);
+    setFavorites(newFavorites);
+    localStorage.setItem('favorites', JSON.stringify(newFavorites));
+  };
+```
 <img src="https://github.com/sslee1210/SooPlaylist/assets/142865231/e7b65117-fbf1-44da-9cc9-f96be4b62327.png"  width="200" height="auto"/>
 
 **2. 음악 제목을 누르면 간단한 한줄평 남기기**
