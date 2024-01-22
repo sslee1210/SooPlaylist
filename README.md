@@ -30,6 +30,10 @@
 ## 페이지 구성 & 주요 로직
 
 ## 메인 페이지
+
+ **검색을 통해 유튜브에서 내가 원하는 음악을 가져오고 재생목록과 찜 목록에 추가할 수 있다.**<br/>
+ **reduce를 통해 브라우저에서 데이터를 저장한다.**
+
 <p align="center">
 <img src="https://github.com/sslee1210/SooPlaylist/assets/142865231/b539da47-1278-4a9c-ad5a-09e012b9995b.png"  width="300" height="auto"/>
 <img src="https://github.com/sslee1210/SooPlaylist/assets/142865231/d8565bcd-fa8e-4801-972b-47e8f61f3684.png"  width="300" height="auto"/>
@@ -97,8 +101,20 @@ const isAlreadyInPlaylist = playlist.find((v) => v.id.videoId === video.id.video
 ```
  
 ```
-// 찜 목록에 추가하는 함수
-const addToFavorites = (video, comment) => {
+ // 찜 목록에 음악을 추가하는 함수
+  const addToFavorites = (video, comment) => {
+    const isAlreadyInFavorites = favorites.find((v) => v.id.videoId === video.id.videoId);
+
+    if (isAlreadyInFavorites) {
+      const updatedFavorites = favorites.map((v) =>
+        v.id.videoId === video.id.videoId ? { ...v, comment: comment } : v
+      );
+      setFavorites(updatedFavorites);
+      localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
+    } else {
+      const newFavorites = [...favorites, { ...video, comment: comment, isFavorited: true }];
+      setFavorites(newFavorites);
+      localStorage.setItem('favorites', JSON.stringify(newFavorites));
 ```
  
 - react-toastify 라이브러리를 활용하여 알림창 커스터마이즈
@@ -112,7 +128,8 @@ const playlist = useSelector((state) => state.playlist);
 
 
 ## 재생목록
-
+**리스트를 통해 내가 저장한 음악 목록을 볼 수 있다.**<br/>
+**유튜브와 관련된 라이브러리를 사용하여 동영상 재생 방식을 내가 원하는 방식으로 구현했다.**
 <p align="center">
 <img src="https://github.com/sslee1210/SooPlaylist/assets/142865231/39a3c2db-0dff-46e6-8dc3-a109bad8ead4.png"  width="300" height="auto"/>
 </p>
@@ -187,6 +204,8 @@ if (isAlreadyInPlaylist) {
 
 ## 찜 목록
 
+**검색된 음악의 제목 옆 하트를 누르면 찜 목록에 저장이 된다.**<br/>
+**찜이 된 음악을 누르면 간단하게 한줄평을 적을 수 있다.**
 <p align="center">
 <img src="https://github.com/sslee1210/SooPlaylist/assets/142865231/5e22cc30-c0e1-4766-97fb-bb664cede3eb.png"  width="300" height="auto"/>
 </p>
