@@ -166,7 +166,7 @@ if (isAlreadyInPlaylist) {
   }
 ```
 
-**2. react-youtube와 youtube-player를 이용하여 프로그래밍 방식으로 동영상 재생 제어**
+**2. react-youtube와 youtube-player 라이브러리를 이용하여 프로그래밍 방식으로 동영상 재생 제어**
 
 <img src="https://github.com/sslee1210/SooPlaylist/assets/142865231/b3f9db7d-c173-4f0a-a3ac-434907b47772.png"  width="200" height="auto"/>
 
