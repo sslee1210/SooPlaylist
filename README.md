@@ -273,21 +273,59 @@ localStorage.setItem('favorites', JSON.stringify(newFavorites));
 ## 📜[작업일지 보러가기](https://neighborly-goal-bcc.notion.site/d11289c41ca04019bf63eabcd548dbe8?v=b781ccbaad4b4c4a9fa651a96f0061c5&pvs=4/)
 
 # 문제 및 해결
-## 무슨 문제?
+## 유튜브 영상을 뮤직 플레이어처럼 꾸밀 수 있을까?
+
+- 이전,다음 버튼과 재생 버튼 그리고 재생 바를 따로 만들어 진짜 플레이어처럼 만들어보고 싶었다. 
 
 
-### 문제 발생
+### 어떻게하면 유튜브 영상을 내가 만든 버튼들로 제어할 수 있을까?
 
-
-
-### 원인 파악
-
+- 영상에 마우스를 올려도 아무 버튼이 뜨지않게 하고 내가 만든 버튼들로 기능을 구현할 수 있게 해야한다.
 
 
 
 ### 문제 해결
 
-
+- YouTube Player API를 사용하여 비디오를 제어하고 YouTube Player가 준비되면 onReady 이벤트에서 플레이어를 설정하고, onStateChange 이벤트에서 재생 상태를 추적, 재생바를 클릭하면 해당 위치로 비디오를 이동시키는 handleProgressBarClick 함수를 추가한다.
+```
+ // 이전 음악 재생 버튼 클릭 시
+  const handlePrevVideo = () => {
+    if (selectedIndex > 0) {
+      const prevVideo = props.playlist[selectedIndex - 1];
+      handleVideoSelect(prevVideo, selectedIndex - 1);
+    }
+  };
+```
+```
+  // 다음 음악 재생 버튼 클릭 시
+  const handleNextVideo = () => {
+    if (selectedIndex < props.playlist.length - 1) {
+      const nextVideo = props.playlist[selectedIndex + 1];
+      handleVideoSelect(nextVideo, selectedIndex + 1);
+    }
+  };
+```
+```
+ // 재생 바 클릭 시
+  const handleProgressBarClick = (e) => {
+    const progressBar = progressBarRef.current;
+    const clickPositionX = e.pageX - progressBar.getBoundingClientRect().left;
+    const newTime = (clickPositionX / progressBar.offsetWidth) * duration;
+    player.seekTo(newTime);
+    setCurrentTime(newTime);
+  };
+```
+```
+  // 음악 재생 시간 업데이트
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (player && isPlaying) {
+        setCurrentTime(player.getCurrentTime());
+      }
+    }, 1000);
+    return () => clearInterval(interval);
+  }, [player, isPlaying]);
+```
 ---
 
 ## 무슨 문제?
