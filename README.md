@@ -334,4 +334,4 @@ localStorage.setItem('favorites', JSON.stringify(newFavorites));
 #### - 팀 프로젝트에선 협업과 소통 능력을 발전 시킬 수 있었다면 개인 프로젝트를 진행하면서 좀 더 집중적으로 나에게 부족한 점을 깨닫고 공부를 할 수 있었다.
 #### - 여러 기능들을 더 추가할 예정이고(ex.셔플재생, 반복재생 등등) 아이팟 느낌이 나게 디자인을 해봤지만 추후 좀 더 세련되게 디자인 할 것이다.
 
-# 🎶[프로젝트 바로가기](https://sslee1210.github.io/SooPlaylist/)
+# 🎶[Soo Playlist 바로가기](https://sslee1210.github.io/SooPlaylist/)
