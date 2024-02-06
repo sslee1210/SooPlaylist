@@ -1,8 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { connect } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import { removeFromPlaylist, loadPlaylist } from '../actions';
-import playlistStyles from './Playlist.module.css';
+import React, { useEffect, useRef, useState } from "react";
+import { connect } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { removeFromPlaylist, loadPlaylist } from "../actions";
+import playlistStyles from "./Playlist.module.css";
 
 const Playlist = (props) => {
   const path = process.env.PUBLIC_URL;
@@ -22,14 +22,14 @@ const Playlist = (props) => {
     : `${playlistStyles.playlist} ${playlistStyles.expanded}`;
 
   useEffect(() => {
-    const savedPlaylist = localStorage.getItem('playlist');
+    const savedPlaylist = localStorage.getItem("playlist");
     if (savedPlaylist) {
       props.dispatch(loadPlaylist(JSON.parse(savedPlaylist)));
     }
   }, [props.dispatch]);
 
   useEffect(() => {
-    localStorage.setItem('playlist', JSON.stringify(props.playlist));
+    localStorage.setItem("playlist", JSON.stringify(props.playlist));
     if (props.playlist.length === 0) {
       setIsListOpen(true);
     }
@@ -102,8 +102,8 @@ const Playlist = (props) => {
     if (selectedVideo && !player) {
       const newPlayer = new window.YT.Player(playerRef.current, {
         videoId: selectedVideo.id.videoId,
-        width: '720',
-        height: '405',
+        width: "480",
+        height: "270",
         playerVars: {
           controls: 0,
         },
@@ -133,11 +133,22 @@ const Playlist = (props) => {
       {selectedVideo ? (
         <>
           <div ref={playerRef} className={playlistStyles.videoPlayer}></div>
-          <div className={playlistStyles.progressBarContainer} ref={progressBarRef} onClick={handleProgressBarClick}>
-            <div className={playlistStyles.progressBar} style={{ width: `${(currentTime / duration) * 100}%` }} />
+          <div
+            className={playlistStyles.progressBarContainer}
+            ref={progressBarRef}
+            onClick={handleProgressBarClick}
+          >
+            <div
+              className={playlistStyles.progressBar}
+              style={{ width: `${(currentTime / duration) * 100}%` }}
+            />
           </div>
           <div className={playlistStyles.startbtn}>
-            <button className={playlistStyles.controlButton} onClick={handlePrevVideo} disabled={selectedIndex <= 0}>
+            <button
+              className={playlistStyles.controlButton}
+              onClick={handlePrevVideo}
+              disabled={selectedIndex <= 0}
+            >
               <img src={`${path}/images/Previous.png`} alt="이전 음악" />
             </button>
             <button
@@ -172,12 +183,15 @@ const Playlist = (props) => {
                     className={playlistStyles.videoTitle}
                     onClick={() => handleVideoSelect(video, index)}
                     style={{
-                      fontWeight: selectedVideo === video ? 'bold' : 'normal',
+                      fontWeight: selectedVideo === video ? "bold" : "normal",
                     }}
                   >
                     {video.snippet.title}
                   </span>
-                  <button className={playlistStyles.delete} onClick={() => handleVideoRemove(video)}>
+                  <button
+                    className={playlistStyles.delete}
+                    onClick={() => handleVideoRemove(video)}
+                  >
                     ❌
                   </button>
                 </li>
