@@ -2,13 +2,15 @@
   margin: 37px auto;
   text-align: center;
   width: 390px;
-  height: 844px;
+  height: 33vw;
   background: linear-gradient(to bottom, #a8a8a8, #7a7979);
   overflow: auto;
-  box-shadow: 0.1px 0.3px 6.1px rgba(0, 0, 0, 0.018), 0.3px 0.6px 14.1px rgba(0, 0, 0, 0.026),
-    0.6px 1.2px 25.3px rgba(0, 0, 0, 0.032), 1px 1.9px 42.1px rgba(0, 0, 0, 0.038),
-    1.6px 3.2px 69.3px rgba(0, 0, 0, 0.044), 2.8px 5.5px 121.1px rgba(0, 0, 0, 0.052),
-    6px 12px 262px rgba(0, 0, 0, 0.07);
+  box-shadow: 0.1px 0.3px 6.1px rgba(0, 0, 0, 0.018),
+    0.3px 0.6px 14.1px rgba(0, 0, 0, 0.026),
+    0.6px 1.2px 25.3px rgba(0, 0, 0, 0.032),
+    1px 1.9px 42.1px rgba(0, 0, 0, 0.038),
+    1.6px 3.2px 69.3px rgba(0, 0, 0, 0.044),
+    2.8px 5.5px 121.1px rgba(0, 0, 0, 0.052), 6px 12px 262px rgba(0, 0, 0, 0.07);
 }
 
 .container ul {
